@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lathif | Creative Developer</title>
+    
+    <!-- Menghubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Library Ikon: Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Header & Navigasi -->
+    <header class="header">
+        <nav class="container navbar">
+            <a href="#" class="nav-logo">Latippp</a>
+            <ul class="nav-menu">
+                <li><a href="#about">Tentang Saya</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Bagian Hero (Perkenalan Utama) -->
+        <section class="hero">
+            <div class="container hero-content">
+                <!-- Ganti 'logo.png' dengan nama file foto Anda. Pastikan file ada di folder yang sama. -->
+                <img src="logo.png" alt="Foto Profil Latippp" class="profile-logo" onerror="this.onerror=null;this.src='https://placehold.co/150x150/1a1a2e/e94560?text=Foto+Anda';">
+                
+                <h1 class="main-heading">Halo, saya Ambar Nyak Allathif</h1>
+                <h2 class="sub-heading">
+                    Saya seorang 
+                    <span id="animated-text" class="animated-text"></span>
+                    <span class="cursor">&nbsp;</span>
+                </h2>
+                <p class="intro-text">Saya mengubah ide-ide kompleks menjadi website yang indah dan intuitif.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Portofolio -->
+        <section id="portfolio" class="portfolio-section fade-in-section">
+            <div class="container">
+                <h2 class="section-title">Karya Pilihan Saya</h2>
+                <div class="portfolio-grid">
+                    <!-- Proyek 1 -->
+                    <div class="project-card">
+                        <img src="https://files.catbox.moe/kqathn.png" alt="Gambar Proyek Satu">
+                        <div class="project-info">
+                            <h3>E-BOOK HOW TO GET 10 MILLION BEFORE THE AGE OF 15 </h3>
+                            <p>Ebook ini hanya 10 halaman Dan isinya sangat menarik yaitu dari mindset,dan caranya.</p>
+                            <a href="https://lynk.id/semuabisa/yr077zzy0x2g" class="btn-view">Lihat Proyek &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Proyek 2 -->
+                    <div class="project-card">
+                        <img src="https://files.catbox.moe/o0iweu.jpg" alt="Gambar Proyek Dua">
+                        <div class="project-info">
+                            <h3>Source Code website Portofolio</h3>
+                            <p>ini source code di buat pake tangan sendiri oleh saya. nanti akan dikirim lewat zip jila anda tekan lihat proyek</p>
+                            <a href="https://lynk.id/semuabisa/pd4e1jjp8wqn" class="btn-view">Lihat Proyek &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Proyek 3 -->
+                    <div class="project-card">
+                        <img src="https://files.catbox.moe/1dtg81.jpg" alt="Gambar Proyek Tiga">
+                        <div class="project-info">
+                            <h3>Untuk Kopi</h3>
+                            <p>Berbagi Tidak Membuatmu Miskin</p>
+                            <a href="https://wa.me/6288707719149" class="btn-view">Lihat Proyek &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Bagian Kontak -->
+        <section id="contact" class="contact-section fade-in-section">
+            <div class="container">
+                 <h2 class="section-title">Mari Terhubung</h2>
+                 <p class="contact-text">Punya ide menarik atau hanya ingin menyapa? Kirimkan saya pesan!</p>
+                 <a href="mailto:vilatip@@vintrzy.my.id" class="btn-contact">Kirim Email</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Latip. Dibuat dengan <i data-lucide="heart" class="heart-icon"></i> dan secangkir kopi.</p>
+    </footer>
+
+    <!-- JavaScript untuk Animasi -->
+    <script>
+        // Inisialisasi Ikon Lucide
+        lucide.createIcons();
+
+        // --- Logika Animasi Teks ---
+        const textElement = document.getElementById('animated-text');
+        const words = ['Young Programmer', 'Creative Programmer', 'Gentlemen'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 150;
+        const deletingSpeed = 100;
+        const delayBetweenWords = 2000;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                // Hapus karakter
+                textElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    setTimeout(type, 500);
+                } else {
+                    setTimeout(type, deletingSpeed);
+                }
+            } else {
+                // Tambah karakter
+                textElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(type, delayBetweenWords);
+                } else {
+                    setTimeout(type, typingSpeed);
+                }
+            }
+        }
+        
+        // --- Logika Animasi Scroll ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1 // Muncul saat 10% bagian terlihat
+        });
+
+        const sectionsToFade = document.querySelectorAll('.fade-in-section');
+        sectionsToFade.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Mulai animasi setelah halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+             setTimeout(type, 500);
+        });
+    </script>
+</body>
+</html>
