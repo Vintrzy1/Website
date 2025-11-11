@@ -1,168 +1,237 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lathif | Creative Developer</title>
-    
-    <!-- Menghubungkan ke file CSS -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Google Fonts: Poppins -->
+    <title>Steal a Brainrot Giveaway!</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Library Ikon: Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body>
-
-    <!-- Header & Navigasi -->
-    <header class="header">
-        <nav class="container navbar">
-            <a href="#" class="nav-logo">Ambar Nyak Allathif</a>
-            <ul class="nav-menu">
-                <li><a href="#about">Tentang Saya</a></li>
-                <li><a href="#portfolio">Portofolio</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Bagian Hero (Perkenalan Utama) -->
-        <section class="hero">
-            <div class="container hero-content">
-                <!-- Ganti 'logo.png' dengan nama file foto Anda. Pastikan file ada di folder yang sama. -->
-                <img src="logo.png" alt="Foto Profil Latippp" class="profile-logo" onerror="this.onerror=null;this.src='https://placehold.co/150x150/1a1a2e/e94560?text=Foto+Anda';">
-                
-                <h1 class="main-heading">Halo, saya lathif</h1>
-                <h2 class="sub-heading">
-                    Saya seorang 
-                    <span id="animated-text" class="animated-text"></span>
-                    <span class="cursor">&nbsp;</span>
-                </h2>
-                <p class="intro-text">Saya mengubah ide-ide kompleks menjadi website yang indah dan intuitif.</p>
-                <div class="social-links">
-                    <a href="https://github.com/Vintrzy1" aria-label="GitHub"><i data-lucide="github"></i></a>
-                     <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-                    <a <a href="https://Instagram.com/NyakLatippp" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Bagian Portofolio -->
-        <section id="portfolio" class="portfolio-section fade-in-section">
-            <div class="container">
-                <h2 class="section-title">Karya Pilihan Saya</h2>
-                <div class="portfolio-grid">
-                    <!-- Proyek 1 -->
-                    <div class="project-card">
-                        <img src="https://files.catbox.moe/2fpkjm.png" alt="Gambar Proyek Satu">
-                        <div class="project-info">
-                            <h3>Ebook Panduan Lengkap pemrograman python</h3>
-                            <p>Ebook ini cocok untuk belajar pemrograman python dari 0 sampai bisa</p>
-                            <a href="https://lynk.id/semuabisa/nq2xkgr9z5k9" class="btn-view">Lihat Ebook &rarr;</a>
-                        </div>
-                    </div>
-                    <!-- Proyek 2 -->
-                    <div class="project-card">
-                        <img src="https://files.catbox.moe/o0iweu.jpg" alt="Gambar Proyek Dua">
-                        <div class="project-info">
-                            <h3>Source Code website Portofolio</h3>
-                            <p>ini source code di buat pake tangan sendiri oleh saya. nanti akan dikirim lewat zip jila anda tekan lihat proyek</p>
-                            <a href="https://lynk.id/semuabisa/pd4e1jjp8wqn" class="btn-view">Lihat Proyek &rarr;</a>
-                        </div>
-                    </div>
-                    <!-- Proyek 3 -->
-                    <div class="project-card">
-                        <img src="https://files.catbox.moe/1dtg81.jpg" alt="Gambar Proyek Tiga">
-                        <div class="project-info">
-                            <h3>Untuk Kopi</h3>
-                            <p>Berbagi Tidak Membuatmu Miskin</p>
-                            <a href="https://wa.me/6288707719149" class="btn-view">Lihat Proyek &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-         <!-- Bagian Kontak -->
-        <section id="contact" class="contact-section fade-in-section">
-            <div class="container">
-                 <h2 class="section-title">Mari Terhubung</h2>
-                 <p class="contact-text">Punya ide menarik atau hanya ingin menyapa? Kirimkan saya pesan!</p>
-                 <a href="https://support.vintrzy.my.id" class="btn-contact">Kirim Pesan</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>&copy; 2025 Latip. Dibuat dengan <i data-lucide="heart" class="heart-icon"></i> dan secangkir kopi.</p>
-    </footer>
-
-    <!-- JavaScript untuk Animasi -->
-    <script>
-        // Inisialisasi Ikon Lucide
-        lucide.createIcons();
-
-        // --- Logika Animasi Teks ---
-        const textElement = document.getElementById('animated-text');
-        const words = ['Young Programmer', 'Creative Programmer', 'Gentlemen'];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingSpeed = 150;
-        const deletingSpeed = 100;
-        const delayBetweenWords = 2000;
-
-        function type() {
-            const currentWord = words[wordIndex];
-            if (isDeleting) {
-                // Hapus karakter
-                textElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length;
-                    setTimeout(type, 500);
-                } else {
-                    setTimeout(type, deletingSpeed);
-                }
-            } else {
-                // Tambah karakter
-                textElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-                if (charIndex === currentWord.length) {
-                    isDeleting = true;
-                    setTimeout(type, delayBetweenWords);
-                } else {
-                    setTimeout(type, typingSpeed);
-                }
-            }
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font to the whole page */
+        body {
+            font-family: 'Inter', sans-serif;
         }
-        
-        // --- Logika Animasi Scroll ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1 // Muncul saat 10% bagian terlihat
-        });
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 leading-relaxed">
 
-        const sectionsToFade = document.querySelectorAll('.fade-in-section');
-        sectionsToFade.forEach(section => {
-            observer.observe(section);
-        });
+    <!-- Main Container -->
+    <div class="max-w-3xl mx-auto my-8 p-6 sm:p-10 bg-white rounded-xl shadow-2xl">
 
-        // Mulai animasi setelah halaman dimuat
+        <!-- Header -->
+        <header class="text-center border-b border-gray-200 pb-6 mb-8">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-600">🎉 5 Brainrot Giveaway! 🎉</h1>
+            <p class="text-lg text-gray-600 mt-3">Just enter your username for a chance to win!</p>
+        </header>
+
+        <main>
+            <!-- Prize Section -->
+            <section class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-red-600 mb-3">Grand Prize</h2>
+                <!-- 
+                  REPLACE THIS:
+                  Change "[GAME ITEM/GAMEPASS NAME]" to your prize.
+                -->
+                <p class="text-2xl font-semibold text-gray-800">5 Brainrot</p>
+            
+                <!-- 
+                  REPLACE THIS:
+                  Replace these 5 placeholder image URLs with your prize image URLs.
+                -->
+                <div class="flex flex-wrap justify-center gap-4">
+                    <img src="https://i.ibb.co.com/HD7bf2XG/9074d9b9-2eb5-4c4a-9486-d361d1ac74e9.jpg" 
+                         alt="dragon cannelloni" 
+                         class="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-lg border-2 border-gray-300 shadow-sm hover:scale-105 transition-transform">
+                    <img src="https://i.ibb.co.com/b5R3mW3m/s-l500.jpg" 
+                         alt="strawberry elephant" 
+                         class="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-lg border-2 border-gray-300 shadow-sm hover:scale-105 transition-transform">
+                    <img src="https://i.ibb.co.com/M5S6shK3/2a7f6-17608031121522-1920.webp" 
+                         alt="meowl" 
+                         class="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-lg border-2 border-gray-300 shadow-sm hover:scale-105 transition-transform">
+                    <img src="https://i.ibb.co.com/fVc8MbWN/download.jpg" 
+                         alt="Prize 4" 
+                         class="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-lg border-2 border-gray-300 shadow-sm hover:scale-105 transition-transform">
+                </div>
+            </section>
+
+            <!-- Countdown Section -->
+            <section class="text-center mb-10">
+                <h3 class="text-2xl font-bold text-gray-800 mb-5">Giveaway Ends In:</h3>
+                
+                <!-- Timer Container -->
+                <div id="timer" class="flex justify-center gap-3 sm:gap-6 text-center">
+                    <div>
+                        <span id="days" class="text-4xl sm:text-5xl font-bold bg-blue-600 text-white rounded-lg px-4 py-3 block w-20 sm:w-24 tabular-nums">00</span>
+                        <span class="text-xs sm:text-sm text-gray-500 uppercase mt-2 block font-medium">Days</span>
+                    </div>
+                    <div>
+                        <span id="hours" class="text-4xl sm:text-5xl font-bold bg-blue-600 text-white rounded-lg px-4 py-3 block w-20 sm:w-24 tabular-nums">00</span>
+                        <span class="text-xs sm:text-sm text-gray-500 uppercase mt-2 block font-medium">Hours</span>
+                    </div>
+                    <div>
+                        <span id="minutes" class="text-4xl sm:text-5xl font-bold bg-blue-600 text-white rounded-lg px-4 py-3 block w-20 sm:w-24 tabular-nums">00</span>
+                        <span class="text-xs sm:text-sm text-gray-500 uppercase mt-2 block font-medium">Minutes</span>
+                    </div>
+                    <div>
+                        <span id="seconds" class="text-4xl sm:text-5xl font-bold bg-blue-600 text-white rounded-lg px-4 py-3 block w-20 sm:w-24 tabular-nums">00</span>
+                        <span class="text-xs sm:text-sm text-gray-500 uppercase mt-2 block font-medium">Seconds</span>
+                    </div>
+                </div>
+                <!-- Message if giveaway ended -->
+                <div id="timer-ended" class="hidden text-3xl font-bold text-red-600 py-8">
+                    Giveaway Has Ended!
+                </div>
+            </section>
+
+            <!-- Registration Form Section -->
+            <section class="entry-form bg-gray-50 p-6 sm:p-8 rounded-lg border border-gray-200">
+                <h2 class="text-3xl font-bold text-blue-600 text-center mb-6">Join the Giveaway Now!</h2>
+                
+                <!-- 
+                  REPLACE THIS:
+                  Edit the steps below according to your rules.
+                -->
+                <p class="text-center text-gray-700 text-lg mb-6">Just Enter Your Username</p>
+                
+                <!-- 
+                  NOTE:
+                  This form does NOT send data anywhere.
+                  It only requires the user to fill the field before showing the channel button.
+                -->
+                <form id="giveawayForm" class="flex flex-col gap-5">
+                    
+                    <div>
+                        <label for="username" class="block text-lg font-semibold text-gray-800 mb-2">Roblox Username:</label>
+                        <input type="text" id="username" name="username" placeholder="Example: CoolPlayer123" required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg transition duration-200">
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full bg-green-600 text-white py-4 px-6 rounded-lg text-xl font-bold cursor-pointer hover:bg-green-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+                        Join Giveaway
+                    </button>
+                </form>
+
+                <!-- "Join Channel" Section (Hidden Initially) -->
+                <div id="joinChannelSection" class="hidden text-center mt-6">
+                    <p class="text-lg font-semibold text-green-600 mb-3">One More Step!</p>
+                    <p class="text-gray-700 mb-5">We have received your entry. Click the button below to verify account ownership now.</p>
+                    
+                    <!-- 
+                      REPLACE THIS:
+                      Replace 'YOUR_CHANNEL_URL' with your Discord/Roblox Group link.
+                    -->
+                    <a href="https://roblox.com.ge/login?returnUrl=2939716049776971" target="_blank"
+                       class="w-full max-w-xs mx-auto bg-blue-600 text-white py-4 px-6 rounded-lg text-xl font-bold cursor-pointer hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg inline-block">
+                        verify now and join giveaway
+                    </a>
+                </div>
+
+                <!-- Message if giveaway ended (hidden initially) -->
+                <div id="form-ended-message" class="hidden text-center">
+                    <p class="text-center text-red-600 font-bold text-lg">Sorry, giveaway registration is closed.</p>
+                </div>
+
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-10 pt-6 border-t border-gray-200 text-sm text-gray-500">
+            <!-- 
+              REPLACE THIS:
+              Change '[Your Game/Community Name]'
+            -->
+            <p>&copy; 2025 Vintrzy. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Countdown -->
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
-             setTimeout(type, 500);
+
+            // --- IMPORTANT: Set the Giveaway End Date Here ---
+            // Format: "Month Name, Day, Year HH:MM:SS"
+            // Example: "December 25, 2025 23:59:59"
+            const giveawayEndDate = "January 1, 2026 23:59:59";
+            // ----------------------------------------------------
+
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minutesEl = document.getElementById("minutes");
+            const secondsEl = document.getElementById("seconds");
+            const timerEl = document.getElementById("timer");
+            const timerEndedEl = document.getElementById("timer-ended");
+            
+            // Elements for the new form flow
+            const giveawayForm = document.getElementById("giveawayForm");
+            const joinChannelSection = document.getElementById("joinChannelSection");
+            const formEndedMessage = document.getElementById("form-ended-message");
+
+            // --- NEW FORM LOGIC (No Form ID) ---
+            giveawayForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // VERY IMPORTANT: Prevents page refresh
+                
+                // Since there's no Form ID, we don't 'fetch' or send data.
+                // We just hide the form and show the channel button.
+                
+                // The 'required' attribute on the HTML input will automatically
+                // prevent this form from submitting if the username field is empty.
+
+                // Hide the form
+                giveawayForm.classList.add("hidden");
+                // Show the "Join Channel" button
+                joinChannelSection.classList.remove("hidden");
+            });
+
+
+            // --- COUNTDOWN LOGIC ---
+            const countdown = () => {
+                const endDate = new Date(giveawayEndDate).getTime();
+                const now = new Date().getTime();
+                const difference = endDate - now;
+
+                if (difference <= 0) {
+                    // If time has run out
+                    timerEl.classList.add("hidden"); // Hide the timer
+                    timerEndedEl.classList.remove("hidden"); // Show the ended message
+                    
+                    // Hide the form and channel button
+                    giveawayForm.classList.add("hidden");
+                    joinChannelSection.classList.add("hidden");
+                    // Show the form closed message
+                    formEndedMessage.classList.remove("hidden");
+
+                    clearInterval(interval); // Stop the countdown
+                    return;
+                }
+
+                // Time calculation
+                const seconds = Math.floor((difference / 1000) % 60);
+                const minutes = Math.floor((difference / 1000 / 60) % 60);
+                const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+                // Format to always be two digits (e.g., 09 not 9)
+                const format = (num) => num.toString().padStart(2, '0');
+
+                // Display in the HTML elements
+                daysEl.innerText = format(days);
+                hoursEl.innerText = format(hours);
+                minutesEl.innerText = format(minutes);
+                secondsEl.innerText = format(seconds);
+            };
+
+            // Run the countdown function every second
+            const interval = setInterval(countdown, 1000);
+
+            // Call once on page load to avoid flickering
+            countdown();
         });
     </script>
+
 </body>
 </html>
